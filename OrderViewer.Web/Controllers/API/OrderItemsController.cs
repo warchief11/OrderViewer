@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using OrderViewer.Web.Models;
+using System.Data.Entity;
 
 namespace OrderViewer.WebAPI.Controllers
 {
@@ -14,14 +15,14 @@ namespace OrderViewer.WebAPI.Controllers
         // GET: api/OrderItems
         public IQueryable<OrderItem> GetOrderItems(int orderId)
         {
-            return db.OrderItems;
+            return db.OrderItems.Where(oi => oi.ParentOrder == orderId);
         }
 
         // GET: api/OrderItems/5
         [ResponseType(typeof(OrderItem))]
         public async Task<IHttpActionResult> GetOrderItem(int orderId, int id)
         {
-            OrderItem orderItem = await db.OrderItems.FindAsync(id);
+            OrderItem orderItem = await GetOrderItems(orderId).FirstOrDefaultAsync(oi => oi.Id == id);
             if (orderItem == null)
             {
                 return NotFound();

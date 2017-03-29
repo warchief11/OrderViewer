@@ -13,7 +13,7 @@ function Order($http, $q) {
     };
 
     this.getOrderItems = function (orderID) {
-        return $http.get('api/order/' + orderID + '/orderItems').then(function (response) {
+        return $http.get('api/orders/' + orderID + '/orderItems').then(function (response) {
             return response.data;
         });
     };

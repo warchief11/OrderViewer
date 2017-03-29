@@ -16,6 +16,7 @@ namespace OrderViewer.Web
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                 .Include("~/Scripts/angular.min.js")
+                .Include("~/Scripts/ui-grid.min.js")
                 //.Include("~/Scripts/angular-animate.min.js")
                 .Include("~/Scripts/AngularUI/ui-router.min.js"));
 
@@ -33,6 +34,7 @@ namespace OrderViewer.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/ui-grid.css",
                       "~/Content/site.css"));
 
            

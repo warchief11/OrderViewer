@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.mygrid {
+  width: 1000px;
+  height: 200px;
+  margin-left : 5px;
+}
